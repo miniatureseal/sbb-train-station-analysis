@@ -4,7 +4,7 @@
     "href": "notebooks/station_reviews.html",
     "title": "What Do Travellers Really Think About Swiss Train Stations?",
     "section": "",
-    "text": "Switzerland is famous for its punctual, well-connected rail network. But reputation is not the same as experience. How do travellers actually feel about the stations themselves?\nThis analysis covers 22,000+ Google Maps reviews across 61 SBB stations, exploring ratings, sentiment, language patterns, and what passengers consistently praise or complain about.\nMethodology, scope, and follow-up ideas are in the appendix at the bottom."
+    "text": "A train station serves many functions at once: transit node, waiting space, first point of contact with a city. This analysis examines how passengers experienced SBB stations in Switzerland across all of these dimensions, drawing on real reviews to look beyond the network’s headline performance metrics.\nThis analysis covers 22,000+ Google Maps reviews across 61 SBB stations, exploring ratings, sentiment, language patterns, and what passengers consistently praise or complain about.\nMethodology, scope, and follow-up ideas are in the appendix at the bottom."
   },
   {
     "objectID": "notebooks/station_reviews.html#setup",
