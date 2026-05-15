@@ -1,0 +1,9 @@
+---
+title: "Swiss Train Station Reviews"
+page-layout: full
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=notebooks/station_reviews.html">
+---
+
+[The analysis is loading. If you are not redirected automatically, follow this link to the report](notebooks/station_reviews.html).

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sbb-reviews"
+version = "0.1.0"
+description = "Analysis of Google Maps reviews for SBB Swiss Federal Railway stations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = [
+    # Crawler
+    "playwright",
+    "pandas",
+    "langdetect",
+    # AI classification
+    "openai",
+    "tqdm",
+    # Analysis / notebook
+    "numpy",
+    "plotly",
+    "matplotlib",
+    "scikit-learn",
+    "nltk",
+    "pycountry",
+    "jupyter",
+    "nbformat",
+]
+
+[project.scripts]
+sbb-reviews = "sbb_reviews.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

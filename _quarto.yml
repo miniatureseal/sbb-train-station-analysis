@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - notebooks/station_reviews.ipynb
+
+execute:
+  freeze: auto
+
+website:
+  title: "Swiss Train Station Reviews"
+  description: "An analysis of Google Maps reviews for SBB stations."
+  repo-url: https://github.com/miniatureseal/sbb-train-station-analysis
+  repo-actions: [source, issue]
+  page-navigation: false
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    code-fold: true
+    code-tools: true
+    code-summary: "Show code"
+    smooth-scroll: true
+    fig-responsive: true
