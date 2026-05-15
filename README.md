@@ -78,4 +78,4 @@ See `DATA_MODEL.md` for the SQLite schema.
 
 - `data/raw/*` and `data/derived/*` are gitignored. The pipeline reproduces them from `data/input/`.
 - The crawler is non-destructive: stations marked `done` are skipped on subsequent runs.
-- The analysis is descriptive, not causal — see the Takeaways section in the notebook for limitations.
+- The analysis is descriptive, not causal. See the Takeaways section in the notebook for limitations.
