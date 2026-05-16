@@ -163,7 +163,7 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
   </ul></li>
   <li><a href="#takeaways-limitations" id="toc-takeaways-limitations" class="nav-link" data-scroll-target="#takeaways-limitations">8: Takeaways &amp; Limitations</a>
   <ul class="collapse">
-  <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I found</a></li>
+  <li><a href="#what-i-found-out" id="toc-what-i-found-out" class="nav-link" data-scroll-target="#what-i-found-out">What I found out</a></li>
   <li><a href="#what-this-analysis-cannot-tell-me" id="toc-what-this-analysis-cannot-tell-me" class="nav-link" data-scroll-target="#what-this-analysis-cannot-tell-me">What this analysis cannot tell me</a></li>
   <li><a href="#what-i-would-do-next" id="toc-what-i-would-do-next" class="nav-link" data-scroll-target="#what-i-would-do-next">What I would do next</a></li>
   </ul></li>
@@ -216,7 +216,14 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I scraped and analysed 22,000+ Google Maps reviews of 61 SBB stations. Overall ratings are high (mean 4.16), with the negative tail concentrating around a small number of stations and a recurring set of issues: Safety, Crowds, Toilets, and Staff/Service. Using GPT-4o-mini to classify each review by aspect and sentiment, I separated complaints into two strategic groups: <em>visible wins</em> (aspects where top stations get praised, so investment yields positive sentiment) and <em>damage control</em> (where investment stops complaints but does not generate praise). The final deliverable of this analysis is a ranked list of action items for the stations split by these two categories.</p>
+<p>I scraped and analysed 22,000+ Google Maps reviews of 61 SBB stations using a keyword-based and an AI-based approach to classify each by aspect and sentiment. Key findings:</p>
+<ul>
+<li><strong>Mean rating 4.16</strong>, but the negative tail clusters in a handful of stations.</li>
+<li><strong>Reviewers are harshest in their home region</strong>, tourists give the most generous ratings.</li>
+<li><strong>Two types of complaint categories are uncovered</strong>: <em>damage control</em> (Safety, Crowds, Toilets: where investment stops complaints but does not generate praise) and <em>visible wins</em> (Cleanliness, Connections, Staff/Service, Food &amp; Shops, Signage/Nav: aspects where top stations get praised, so investment yields positive sentiment).</li>
+<li><strong>Reviews dealing with Safety, Staff/Service, and Crowds are the main drivers for negative ratings</strong>, Staff/Service, Connections, and Safety carry the harshest reviews (1.6-2.0★ averages).</li>
+</ul>
+<p>The final deliverable is a ranked list of station-aspect action items split by the above mentioned categories.</p>
 </div>
 </div>
 </section>
@@ -596,8 +603,8 @@ Swahili (macrolanguage)      2  0.0
                    Urdu      1  0.0</code></pre>
 </div>
 </div>
-<p>Romansh, Switzerland’s fourth national language, is absent from the dataset. No reviews in Romansh (rm) were detected. Romansh speakers number around ~40,000 and are concentrated in rural Graubünden valleys {% fn 1 %}{% fn 2 %}. None of which are served by stations in this dataset. Romansh speakers are also typically bilingual in German, making German the likely choice when writing a review.</p>
-<p>{{ “https://www.rtr.ch/emissiuns/decodar-nossa-cultura/raetoromanisch/fakten-geschichte/fakten-und-zahlen-raetoromanische-sprache” | fndetail: 1 }} {{ “https://www.bfs.admin.ch/asset/de/23366958” | fndetail: 2 }}</p>
+<p>Romansh, Switzerland’s fourth national language, is absent from the dataset. No reviews in Romansh (rm) were detected. Romansh speakers number around ~40,000 and are concentrated in rural Graubünden valleys. None of which are served by stations in this dataset. Romansh speakers are also typically bilingual in German, making German the likely choice when writing a review.</p>
+<p>References: https://www.rtr.ch/emissiuns/decodar-nossa-cultura/raetoromanisch/fakten-geschichte/fakten-und-zahlen-raetoromanische-sprache https://www.bfs.admin.ch/asset/de/23366958</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1690,7 +1697,7 @@ Genève-Eaux-Vives     4.88    4.18   -0.69
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(region_stats.to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="fig-region-rating" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="252" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.477282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.477063Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:16.483518Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:16.482930Z&quot;}}">
+<div id="fig-region-rating" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.477282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.477063Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:16.483518Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:16.482930Z&quot;}}" data-execution_count="252">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-region-rating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-stdout">
@@ -2132,7 +2139,7 @@ Name: median_chars, dtype: int64</code></pre>
 <section id="complaint-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="complaint-analysis">Complaint Analysis</h3>
 <p>Low-star reviews contain the most actionable signal. As a first pass, I use a naive keyword-anchored approach. I match reviews against keywords in the four Swiss languages to bucket them into aspects (Cleanliness, Safety, Connections, etc.). This shows roughly what people talk about and where pain points concentrate, but has clear limitations that I revisit further down with an AI-based approach.</p>
-<div id="fig-aspect-share" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="259" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.998726Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.998465Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:17.004966Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:17.003559Z&quot;}}">
+<div id="fig-aspect-share" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.998726Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.998465Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:17.004966Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:17.003559Z&quot;}}" data-execution_count="259">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-aspect-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aspect-based complaint analysis (keyword anchoring)</span></span>
@@ -3146,7 +3153,7 @@ Figure&nbsp;19: Total complaint counts per aspect, AI-classified negative mentio
 <div class="cell-output cell-output-stdout">
 <pre><code>Aspect severity ranking (lowest avg rating = most damaging):</code></pre>
 </div>
-<div id="fig-aspect-severity" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="266" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.378966Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.378836Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.427507Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.426679Z&quot;}}">
+<div id="fig-aspect-severity" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.378966Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.378836Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.427507Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.426679Z&quot;}}" data-execution_count="266">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-aspect-severity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-aspect-severity-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
@@ -3487,7 +3494,7 @@ Figure&nbsp;21: Volume vs severity per aspect. Bottom-right = widespread and sev
 <div class="cell-output cell-output-stdout">
 <pre><code>Dominant complaint topic per station (AI), sorted by rating:</code></pre>
 </div>
-<div id="fig-station-heatmap" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="268" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.492691Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.492551Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.553508Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.552731Z&quot;}}">
+<div id="fig-station-heatmap" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.492691Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.492551Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.553508Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.552731Z&quot;}}" data-execution_count="268">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-station-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-station-heatmap-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
@@ -4422,7 +4429,7 @@ Staff/Service                  9             111
 <div class="cell-output cell-output-stdout">
 <pre><code>Total action items: 56  |  Stations: 16</code></pre>
 </div>
-<div id="fig-priorities" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="271" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.833693Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.833448Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.889473Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.888812Z&quot;}}">
+<div id="fig-priorities" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.833693Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.833448Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.889473Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.888812Z&quot;}}" data-execution_count="271">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-priorities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-priorities-1" class="cell-output cell-output-display cell-output-markdown quarto-float quarto-figure quarto-figure-center anchored">
@@ -4573,13 +4580,14 @@ Figure&nbsp;25
 </section>
 <section id="takeaways-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="takeaways-limitations">8: Takeaways &amp; Limitations</h2>
-<section id="what-i-found" class="level3">
-<h3 class="anchored" data-anchor-id="what-i-found">What I found</h3>
+<section id="what-i-found-out" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-found-out">What I found out</h3>
 <ul>
-<li><strong>Overall sentiment is positive but uneven.</strong> The network averages 4.16 stars, yet the negative tail concentrates around a handful of stations where issues are systemic rather than scattered.</li>
+<li><strong>Overall sentiment is positive.</strong> The network averages 4.16 stars, yet the negative tail concentrates around a handful of stations where issues are systemic rather than scattered.</li>
 <li><strong>Reviewers are harshest in their home region.</strong> Local reviewers consistently rate their own region’s stations lower than out-of-region reviewers do. Tourists give the most generous ratings overall.</li>
-<li><strong>Ratings drift over time, but slowly.</strong> Most stations are stable across 2022-2025. A few (Wil SG, Oensingen, Bülach) gained 0.6-0.8 stars, suggesting recent improvements were noticed.</li>
+<li><strong>Ratings drift over time, but slowly.</strong> Most stations are stable across 2022-2025. A few (for example, Wil SG, Oensingen, Bülach) gained 0.6-0.8 stars, suggesting recent improvements were noticed.</li>
 <li><strong>Two strategic categories of complaint emerged.</strong> Safety, Crowds, and Toilets are damage control: high complaint volume but no praise even at top stations, so investment stops the bleeding without lifting sentiment. Cleanliness, Connections, Food &amp; Shops, Staff/Service, and Signage/Nav are visible wins: top stations show that positive sentiment is achievable.</li>
+<li><strong>Staff/Service, Connections, and Safety complaints sit on the harshest reviews</strong> (average ratings 1.6, 1.9, 2.0 stars, well below the other aspects). Combined with how often each appears, Safety, Staff/Service, and Crowds dominate the negative-rating story: Crowds drops fewer star points per complaint but shows up in very high volume, while Connections is severe but less frequent.</li>
 </ul>
 </section>
 <section id="what-this-analysis-cannot-tell-me" class="level3">
