@@ -4,7 +4,7 @@
     "href": "notebooks/station_reviews.html",
     "title": "What Do Travellers Really Think About Swiss Train Stations?",
     "section": "",
-    "text": "A train station serves many functions at once. Transit node, waiting space, first point of contact with a city. This analysis examines how passengers experienced SBB stations in Switzerland across all of these dimensions, drawing on real reviews to look beyond the network’s headline performance metrics.\n\nImage: © SBB CFF FFS. Used for editorial purposes under the terms of the SBB Media Center.\nThis analysis covers 22,000+ Google Maps reviews across 61 SBB stations, exploring ratings, sentiment, language patterns, and what passengers consistently praise or complain about."
+    "text": "A train station serves many functions at once. Transit node, waiting space, first point of contact with a city. This analysis examines how passengers experienced SBB stations in Switzerland across all of these dimensions, drawing on real reviews to look beyond the network’s headline performance metrics.\n\n© SBB CFF FFS\nThis analysis covers 22,000+ Google Maps reviews across 61 SBB stations, exploring ratings, sentiment, language patterns, and what passengers consistently praise or complain about."
   },
   {
     "objectID": "notebooks/station_reviews.html#setup",
