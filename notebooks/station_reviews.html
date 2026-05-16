@@ -214,18 +214,18 @@ if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.M
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Short Summary
+<span class="screen-reader-only">Note</span>TL;DR
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I scraped and analysed 22,000+ Google Maps reviews of 61 SBB stations using a keyword-based and an AI-based approach to classify each by aspect and sentiment. Key findings:</p>
+<p>I scraped and analysed 22,000+ Google Maps reviews across 61 SBB stations and ran each one through both a keyword filter and an AI classifier (GPT-4o-mini) that picks out which aspect of the station is being discussed and whether the sentiment is positive or negative. A few things stood out:</p>
 <ul>
-<li><strong>Mean rating 4.16</strong>, but the negative tail clusters in a handful of stations.</li>
-<li><strong>Reviewers are harshest in their home region</strong>, tourists give the most generous ratings.</li>
-<li><strong>Two types of complaint categories are uncovered</strong>: <em>damage control</em> (Safety, Crowds, Toilets: where investment stops complaints but does not generate praise) and <em>visible wins</em> (Cleanliness, Connections, Staff/Service, Food &amp; Shops, Signage/Nav: aspects where top stations get praised, so investment yields positive sentiment).</li>
-<li><strong>Reviews dealing with Safety, Staff/Service, and Crowds are the main drivers for negative ratings</strong>, Staff/Service, Connections, and Safety carry the harshest reviews (1.6-2.0★ averages).</li>
+<li>The network of stations averages 4.16 stars, which is high. The negative reviews are not spread evenly though, they pile up at a small group of stations.</li>
+<li>Reviewers are harshest on stations in their own linguistic region. Tourists writing in English are by far the most generous.</li>
+<li>Complaints split into two useful groups. <em>Damage control</em> (Safety, Crowds, Toilets) is where investment mostly just stops the bleeding, because even the top rated stations don’t get praised for these. <em>Visible wins</em> (Cleanliness, Connections, Staff/Service, Food &amp; Shops, Signage/Nav) is where the best stations actually get praise, so investment can lift sentiment as well as reduce complaints.</li>
+<li>Safety, Staff/Service, and Crowds drive the biggest share of negative ratings by volume. Reviews that mention Staff/Service, Connections, or Safety also tend to come with the lowest ratings (1.6-2.0★ averages).</li>
 </ul>
-<p>The final deliverable is a ranked list of station-aspect action items split by the above mentioned categories.</p>
+<p>The final deliverable is a ranked list of action items per station, split by the categories <em>Damage control</em> and <em>Visible wins</em>.</p>
 </div>
 </div>
 </section>
@@ -1699,7 +1699,7 @@ Genève-Eaux-Vives     4.88    4.18   -0.69
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(region_stats.to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="fig-region-rating" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="285" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.477282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.477063Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:16.483518Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:16.482930Z&quot;}}">
+<div id="fig-region-rating" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.477282Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.477063Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:16.483518Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:16.482930Z&quot;}}" data-execution_count="285">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-region-rating-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-stdout">
@@ -2141,7 +2141,7 @@ Name: median_chars, dtype: int64</code></pre>
 <section id="complaint-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="complaint-analysis">Complaint Analysis</h3>
 <p>Low-star reviews contain the most actionable signal. As a first pass, I use a naive keyword-anchored approach. I match reviews against keywords in the four Swiss languages to bucket them into aspects (Cleanliness, Safety, Connections, etc.). This shows roughly what people talk about and where pain points concentrate, but has clear limitations that I revisit further down with an AI-based approach.</p>
-<div id="fig-aspect-share" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="292" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.998726Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.998465Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:17.004966Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:17.003559Z&quot;}}">
+<div id="fig-aspect-share" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:16.998726Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:16.998465Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:17.004966Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:17.003559Z&quot;}}" data-execution_count="292">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-aspect-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aspect-based complaint analysis (keyword anchoring)</span></span>
@@ -3155,7 +3155,7 @@ Figure&nbsp;19: Total complaint counts per aspect, AI-classified negative mentio
 <div class="cell-output cell-output-stdout">
 <pre><code>Aspect severity ranking (lowest avg rating = most damaging):</code></pre>
 </div>
-<div id="fig-aspect-severity" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="299" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.378966Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.378836Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.427507Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.426679Z&quot;}}">
+<div id="fig-aspect-severity" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.378966Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.378836Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.427507Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.426679Z&quot;}}" data-execution_count="299">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-aspect-severity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-aspect-severity-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
@@ -3496,7 +3496,7 @@ Figure&nbsp;21: Volume vs severity per aspect. Bottom-right = widespread and sev
 <div class="cell-output cell-output-stdout">
 <pre><code>Dominant complaint topic per station (AI), sorted by rating:</code></pre>
 </div>
-<div id="fig-station-heatmap" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="301" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.492691Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.492551Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.553508Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.552731Z&quot;}}">
+<div id="fig-station-heatmap" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.492691Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.492551Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.553508Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.552731Z&quot;}}" data-execution_count="301">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-station-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-station-heatmap-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
@@ -4404,7 +4404,7 @@ Figure&nbsp;24: Aspect-level gap analysis: visible wins vs damage control.
 <div class="cell-output cell-output-stdout">
 <pre><code>Total action items: 56  |  Stations: 16</code></pre>
 </div>
-<div id="fig-priorities" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="304" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.833693Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.833448Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.889473Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.888812Z&quot;}}">
+<div id="fig-priorities" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-05-16T08:34:18.833693Z&quot;,&quot;iopub.status.busy&quot;:&quot;2026-05-16T08:34:18.833448Z&quot;,&quot;iopub.status.idle&quot;:&quot;2026-05-16T08:34:18.889473Z&quot;,&quot;shell.execute_reply&quot;:&quot;2026-05-16T08:34:18.888812Z&quot;}}" data-execution_count="304">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-priorities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="fig-priorities-1" class="cell-output cell-output-display cell-output-markdown quarto-float quarto-figure quarto-figure-center anchored">
